@@ -416,6 +416,7 @@
             <div class="quote-container">
                 <h2>Get Your Free Quote</h2>
                 <form id="quoteForm" action="https://api.web3forms.com/submit" method="POST">
+                    
                     <input type="hidden" name="access_key" value="14a8817d-fbd9-4d3c-986f-1e124fd84c3b">
 
                     <div class="form-group">
@@ -498,13 +499,12 @@
 
         // Form submission logic
         document.getElementById('quoteForm').addEventListener('submit', function(e) {
-            // Target the correctly matched option values
             const nameVal = document.getElementById('name').value.trim();
             const emailVal = document.getElementById('email').value.trim();
             const addressVal = document.getElementById('address').value.trim();
             const servicesVal = document.getElementById('quote_services').value;
             
-            // Client-side verification check
+            // Fixed validation mapping logic
             if (!nameVal || !emailVal || !addressVal || !servicesVal) {
                 e.preventDefault(); 
                 alert('Please fill in all required fields.');
@@ -527,4 +527,3 @@
     </script>
 </body>
 </html>
-  
