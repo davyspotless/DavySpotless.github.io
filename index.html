@@ -497,22 +497,23 @@
                 }
             });
         });
-
-        // Form submission
+// Form submission
 document.getElementById('quoteForm').addEventListener('submit', function(e) {
-    // We remove e.preventDefault() so the form can actually send to Web3Forms!
+    // Get the actual input values from the page
+    const nameVal = document.getElementById('name').value.trim();
+    const emailVal = document.getElementById('email').value.trim();
+    const addressVal = document.getElementById('address').value.trim();
+    const servicesVal = document.getElementById('services').value;
     
-    // Simple client-side validation
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const address = document.getElementById('address').value;
-    const services = document.getElementById('services').value;
-    
-    if (!name || !email || !address || !services) {
-        e.preventDefault(); // Stop submission if fields are missing
+    // Validate that required inputs are not empty
+    if (!nameVal || !emailVal || !addressVal || !servicesVal) {
+        e.preventDefault(); // Stop form submission to Web3Forms
         alert('Please fill in all required fields.');
     }
+    // If validation passes, e.preventDefault() is NOT called, 
+    // allowing the data to fly straight to your Web3Forms inbox!
 });
+
 
         // Add scroll animations
         const observer = new IntersectionObserver((entries) => {
